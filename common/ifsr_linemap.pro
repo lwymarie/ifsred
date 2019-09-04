@@ -70,12 +70,13 @@ pro ifsr_linemap,infile,outfile,wavesum,allowneg=allowneg,$
                  subsampleout=subsampleout,$
                  subsamplefac=subsamplefac,$
                  wavesub=wavesub,$
-                 datext=datext,varext=varext,dqext=dqext,$
+                 datext=datext,varext=varext,dqext=dqext
 
 
    bad=1d99
 
    if ~ keyword_set(datext) then datext=1
+   if datext eq -1 then datext = 0
    if ~ keyword_set(varext) then varext=2
    if ~ keyword_set(dqext) then dqext=3
 
@@ -99,6 +100,7 @@ pro ifsr_linemap,infile,outfile,wavesum,allowneg=allowneg,$
       writefits,outfile,[],header.phu
       appenddat=1b
    endif
+   print,header.dat
    writefits,outfile,linesum.dat,header.dat,append=appenddat
    writefits,outfile,linesum.var,header.var,/append
    
