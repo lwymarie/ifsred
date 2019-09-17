@@ -100,7 +100,6 @@ pro ifsr_linemap,infile,outfile,wavesum,allowneg=allowneg,$
       writefits,outfile,[],header.phu
       appenddat=1b
    endif
-   print,header.dat
    writefits,outfile,linesum.dat,header.dat,append=appenddat
    writefits,outfile,linesum.var,header.var,/append
    
