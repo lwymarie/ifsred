@@ -121,6 +121,8 @@ pro ifsr_spaxsum,infile,outfile,sumpar,spaxlist=spaxlist,weights=weights,$
          isum = cgsetintersection(isumx,isumy)
       end else message,'Number of elements in SUMPAR must be 3 or 4.'
    endelse
+   ; Print some information; MWL 2020-Apr-1
+   print,'IFSR_SPAXSUM: number of spaxels summed',n_elements(isum)
 
 ;  circular or square region to ignore
    if keyword_set(ignorepar) then begin
