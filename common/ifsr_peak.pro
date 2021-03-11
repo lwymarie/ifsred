@@ -111,7 +111,9 @@ function ifsr_peak,cube,lamrange,circ=circ,indrange=indrange,quiet=quiet,$
                   indrange[0]:indrange[1]]
 
 ; Zero out DQed data
-  ibad = where(dqsub eq 1)
+;  ibad = where(dqsub eq 1)
+; Zero out DQed or NANed data
+  ibad = where(dqsub eq 1 or ~finite(datsub))
   datsub[ibad] = 0
   varsub[ibad] = 0
 
