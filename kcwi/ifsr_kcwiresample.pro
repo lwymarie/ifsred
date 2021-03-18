@@ -75,7 +75,7 @@ pro ifsr_kcwiresample,instr,outfile,goodreg
                      yarr,newyarr)*pxscl/slscl
          newvar[*,j,i] = $
             interpol(var[goodreg[0]-1:goodreg[2]-1,goodreg[1]-1+j,i],$
-                     yarr,newyarr)*(pxscl/slscl)^2d
+                     yarr,newyarr)*pxscl/slscl
          newmsk[*,j,i] = $
             interpol(msk[goodreg[0]-1:goodreg[2]-1,goodreg[1]-1+j,i],$
                      yarr,newyarr)
